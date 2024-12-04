@@ -1,0 +1,104 @@
+mode: ContinuousDelivery
+commit-message-incrementing: enabled
+
+branches:
+
+  main:
+    mode: ContinuousDelivery
+    label: 'rev'
+    increment: Minor
+    prevent-increment-of-merged-branch-version: true
+    track-merge-target: true
+    regex: ^main$|^master$
+    source-branches: []
+    tracks-release-branches: false
+    is-release-branch: false
+    is-mainline: true
+    pre-release-weight: 60000
+
+  develop:
+    mode: ContinuousDelivery
+    label: 'rev'
+    increment: Minor
+    prevent-increment-of-merged-branch-version: true
+    track-merge-target: true
+    regex: ^develop$
+    source-branches: []
+    tracks-release-branches: false
+    is-release-branch: false
+    is-mainline: true
+    pre-release-weight: 60000
+
+  release:
+    mode: ContinuousDelivery
+    label: 'rev'
+    increment: Patch
+    prevent-increment-of-merged-branch-version: false
+    track-merge-target: false
+    regex: ^releas(e|es)?[/-]
+    source-branches:
+      - develop
+      - main
+      - hotfix
+    tracks-release-branches: false
+    is-release-branch: true
+    is-mainline: false
+    pre-release-weight: 30000
+
+  feature:
+    mode: ContinuousDeployment
+    label: useBranchName
+    #increment: Inherit
+    prevent-increment-of-merged-branch-version: false
+    track-merge-target: true
+    regex: ^featur(e|es)?[/-]
+    source-branches:
+      - feature
+      - hotfix
+      - develop
+      - main
+      - release
+    tracks-release-branches: false
+    is-release-branch: false
+    is-mainline: false
+    pre-release-weight: 30000
+
+  hotfix:
+    mode: ContinuousDelivery
+    label: useBranchName
+    increment: Patch
+    prevent-increment-of-merged-branch-version: false
+    track-merge-target: true
+    regex: ^hotfix(es)?[/-]
+    source-branches:
+      - main
+      - develop
+      - release
+    tracks-release-branches: false
+    is-release-branch: false
+    is-mainline: false
+    pre-release-weight: 30000
+
+  pull-request:
+    mode: ContinuousDeployment
+    label: 'pr'
+    increment: Inherit
+    prevent-increment-of-merged-branch-version: false
+    track-merge-target: false
+    regex: ^pull?
+    source-branches:
+      - develop
+      - main
+      - release
+      - feature
+      - hotfix
+    tracks-release-branches: false
+    is-release-branch: false
+    is-mainline: false
+    pre-release-weight: 30000
+
+
+ignore:
+  sha: []
+merge-message-formats: {}
+

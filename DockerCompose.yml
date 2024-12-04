@@ -1,0 +1,82 @@
+version: '3.7'
+services:
+  otel-collector:
+    container_name: otel-collector
+    image: otel/opentelemetry-collector-contrib:0.61.0
+    profiles: ["infrastructure-monitoring"]
+    command: [ "--config=/etc/otel-collector-config.yaml" ]
+    restart: no
+    volumes:
+      - ./.misc/monitoring/otel-collector/otel-collector-config.yaml:/etc/otel-collector-config.yaml
+      - otelcollector_log:/etc/output:rw # Store the logs
+    ports:
+      - "8888:8888"   # Prometheus metrics exposed by the collector
+      - "8889:8889"   # Prometheus exporter metrics
+      - "4317:4317"   # OTLP gRPC receiver
+    networks:
+      - localnet
+
+  prometheus:
+    container_name: prometheus
+    image: prom/prometheus:v2.37.0
+    profiles: ["infrastructure-monitoring"]
+    restart: no
+    volumes:
+      - ./.misc/monitoring/prometheus/prometheus.yaml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9091:9090"
+    networks:
+      - localnet
+
+  tempo:
+    container_name: tempo
+    image: grafana/tempo:1.4.1
+    profiles: ["infrastructure-monitoring"]
+    command: ["-config.file=/etc/tempo.yaml"]
+    restart: no
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./.misc/monitoring/tempo/tempo.yaml:/etc/tempo.yaml
+    ports:
+      - 3200:3200  # tempo
+      - 4007:4317  # otlp grpc
+    networks:
+      - localnet
+
+  loki:
+    container_name: loki
+    image: grafana/loki:2.5.0
+    profiles: ["infrastructure-monitoring"]
+    command: -config.file=/etc/loki/local-config.yaml
+    restart: no
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./.misc/monitoring/loki/loki.yaml:/etc/loki/local-config.yaml
+    ports:
+      - 3100:3100
+    networks:
+      - localnet
+
+  grafana:
+    container_name: grafana
+    image: grafana/grafana:9.0.1
+    profiles: ["infrastructure-monitoring"]
+    restart: no
+    environment:
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - GF_AUTH_DISABLE_LOGIN_FORM=true
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./.misc/monitoring/grafana/grafana.ini:/etc/grafana/grafana.ini
+      - ./.misc/monitoring/grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+    ports:
+      - 3001:3000
+    networks:
+      - localnet
+
+networks:
+  localnet:
+    driver: bridge
+  infrastructure_localnet:
+    external: true
