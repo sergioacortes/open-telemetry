@@ -6,6 +6,7 @@ using NetFrameworkOpenTelemetry.Telemetry.Models.OpenTelemetry;
 using Owin;
 using System;
 
+[assembly: Microsoft.Owin.OwinStartup(typeof(NetFrameworkOpenTelemetry.Host.StartUp))]
 namespace NetFrameworkOpenTelemetry.Host
 {
     public class StartUp
