@@ -2,8 +2,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{59817F53-C40F-408B-9FE6-68334DCA9925}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{4700E654-3EFA-4F44-8F8C-999C7CAD8253}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCoreAppTelemetry.Infrastructure.OpenTelemetry", "src\NetCoreAppTelemetry.Infrastructure.OpenTelemetry\NetCoreAppTelemetry.Infrastructure.OpenTelemetry.csproj", "{FABBD536-8208-45B7-B40E-CDDFD04ED5C7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCoreAppTelemetry.Host", "src\NetCoreAppTelemetry.Host\NetCoreAppTelemetry.Host.csproj", "{9059ABA6-D50F-4518-8B25-47C2E7C6DEBB}"
@@ -12,12 +10,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".misc", ".misc", "{3D381F86
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 		Directory.Build.props = Directory.Build.props
+		DockerCompose = DockerCompose
+		DockerCompose.yml = DockerCompose.yml
 		GitVersion.yml = GitVersion.yml
 		NuGet.Config = NuGet.Config
 		README.md = README.md
 	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".monitoring", ".monitoring", "{2D3B5C16-825C-4DF1-80DB-C9B6C58EB68C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
