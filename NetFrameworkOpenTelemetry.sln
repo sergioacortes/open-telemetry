@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A348CE97-29FE-4593-A380-33A1145B0F55}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".misc", ".misc", "{EFE08294-A14B-4902-83FD-9E9F68B1C4B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetFrameworkOpenTelemetry.Host", "src\NetFrameworkOpenTelemetry.Host\NetFrameworkOpenTelemetry.Host.csproj", "{AE017CEA-E507-40E8-9EE2-A3B507A4CB5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetFrameworkOpenTelemetry.Telemetry", "src\NetFrameworkOpenTelemetry.Telemetry\NetFrameworkOpenTelemetry.Telemetry.csproj", "{42267CDC-DF66-4333-ACF3-6B79D48AA6ED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE017CEA-E507-40E8-9EE2-A3B507A4CB5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE017CEA-E507-40E8-9EE2-A3B507A4CB5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE017CEA-E507-40E8-9EE2-A3B507A4CB5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE017CEA-E507-40E8-9EE2-A3B507A4CB5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42267CDC-DF66-4333-ACF3-6B79D48AA6ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42267CDC-DF66-4333-ACF3-6B79D48AA6ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42267CDC-DF66-4333-ACF3-6B79D48AA6ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42267CDC-DF66-4333-ACF3-6B79D48AA6ED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AE017CEA-E507-40E8-9EE2-A3B507A4CB5B} = {A348CE97-29FE-4593-A380-33A1145B0F55}
+		{42267CDC-DF66-4333-ACF3-6B79D48AA6ED} = {A348CE97-29FE-4593-A380-33A1145B0F55}
+	EndGlobalSection
+EndGlobal
