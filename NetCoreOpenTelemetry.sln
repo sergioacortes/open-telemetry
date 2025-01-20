@@ -1,5 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{59817F53-C40F-408B-9FE6-68334DCA9925}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCoreAppTelemetry.Infrastructure.OpenTelemetry", "src\NetCoreAppTelemetry.Infrastructure.OpenTelemetry\NetCoreAppTelemetry.Infrastructure.OpenTelemetry.csproj", "{FABBD536-8208-45B7-B40E-CDDFD04ED5C7}"
@@ -9,7 +12,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".misc", ".misc", "{3D381F86-D6E4-4040-9E24-F5161FD88710}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
-		Directory.Build.props = Directory.Build.props
 		DockerCompose = DockerCompose
 		DockerCompose.yml = DockerCompose.yml
 		GitVersion.yml = GitVersion.yml
@@ -22,10 +24,6 @@ Global
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{FABBD536-8208-45B7-B40E-CDDFD04ED5C7} = {59817F53-C40F-408B-9FE6-68334DCA9925}
-		{9059ABA6-D50F-4518-8B25-47C2E7C6DEBB} = {59817F53-C40F-408B-9FE6-68334DCA9925}
-	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{FABBD536-8208-45B7-B40E-CDDFD04ED5C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FABBD536-8208-45B7-B40E-CDDFD04ED5C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
@@ -35,5 +33,12 @@ Global
 		{9059ABA6-D50F-4518-8B25-47C2E7C6DEBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9059ABA6-D50F-4518-8B25-47C2E7C6DEBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9059ABA6-D50F-4518-8B25-47C2E7C6DEBB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FABBD536-8208-45B7-B40E-CDDFD04ED5C7} = {59817F53-C40F-408B-9FE6-68334DCA9925}
+		{9059ABA6-D50F-4518-8B25-47C2E7C6DEBB} = {59817F53-C40F-408B-9FE6-68334DCA9925}
 	EndGlobalSection
 EndGlobal
